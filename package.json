@@ -1,0 +1,34 @@
+{
+  "name": "send-otp",
+  "version": "0.0.0",
+  "description": "Integrate sendotp",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PriyankaPathak/socket-node.git"
+  },
+  "keywords": [
+    "SendOtp",
+    "Flow",
+    "Node",
+    "API"
+  ],
+  "author": "Priyanka P",
+  "license": "MIT",
+  "homepage": "https://github.com/PriyankaPathak/socket-node",
+  "dependencies": {
+    "mocha": "^2.5.3",
+    "request": "^2.72.0",
+    "nock": "^9.0.2"
+  },
+  "bugs": {
+    "url": "https://github.com/PriyankaPathak/socket-node/issues"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {}
+}
