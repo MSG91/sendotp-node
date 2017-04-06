@@ -6,10 +6,10 @@ This SDK enables sendOTP and allows you to send OTP
 
 1. Download the NPM module
 ```
-    npm install sendotp --save
+npm install sendotp --save
 ```
 2. Require the package in your code.
-```javascript
+```
 const SendOtp = require('sendotp');
 ```
 3. Initialize with your auth key
