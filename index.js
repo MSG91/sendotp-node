@@ -85,7 +85,7 @@ class SendOtp {
                 mobile: contactNumber,
                 otp: otp
             };
-        return SendOtp.doRequest('get', "verifyotp.php", args, (error, data, response) => {
+        return SendOtp.doRequest('get', "verifyRequestOTP.php", args, (error, data, response) => {
                 if(error) throw error;
                 if(data.type == 'success') return true;
                 return false;
@@ -104,7 +104,6 @@ class SendOtp {
             promise = true;
         }
 
-        console.log("In here", method, path, params);
         let options = {
             method: method,
             url: SendOtp.getBaseURL() + "" + path
