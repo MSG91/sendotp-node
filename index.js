@@ -58,16 +58,15 @@ class SendOtp {
      * Return promise if no callback is passed and promises available
      */
     retry(contactNumber, retryVoice, callback) {
-        let retryType =  'voice',
-            args = {
-                authkey: this.authKey,
-                mobile: contactNumber,
-                retrytype: retryType
-            };
-
+        let retryType =  'voice';
         if (!retryVoice) {
             retryType = 'text'
         }
+        let args = {
+            authkey: this.authKey,
+            mobile: contactNumber,
+            retrytype: retryType
+        };
 
         return SendOtp.doRequest('get', "retryotp.php", args, callback);
     }
@@ -85,11 +84,7 @@ class SendOtp {
                 mobile: contactNumber,
                 otp: otp
             };
-        return SendOtp.doRequest('get', "verifyRequestOTP.php", args, (error, data, response) => {
-                if(error) throw error;
-                if(data.type == 'success') return true;
-                return false;
-            });
+        return SendOtp.doRequest('get', "verifyRequestOTP.php", args, callback);
     }
 
     static doRequest (method, path, params, callback) {

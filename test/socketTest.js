@@ -10,7 +10,7 @@ describe('SendOtp', () => {
         assert(sendOtp instanceof SendOtp);
     });
 
-    describe('doRequest', () => {
+    describe('constructor', () => {
         it('set default template if no message template is provided', () => {
             let sendOtp = new SendOtp('auth-key');
             assert.equal(sendOtp.authKey, 'auth-key');

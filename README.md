@@ -24,38 +24,32 @@ You now have the send, retry and verify otp via following methods.
 ```javascript
 sendOtp.send(contactNumber, senderId, callback);
 sendOtp.retry(contactNumber, retryVoice, callback);
-sendOtp.verify(contactNumber, otp); // return boolean response
+sendOtp.verify(contactNumber, otp callback);
 ```
 
 ### Usage:
 
 To send OTP
 ```javascript
-
-sendOtp.send('919999999999', 'MSGIND')
-    .on('success', (data) => {
-        console.log('OTP Send');
-    })
-    .on('error', (err) => {
-        console.warn(err);
-    });
+sendOtp.send("919999999999", "PRIIND", function (error, data, response) {
+  console.log(data);
+});
 ```
 
 To retry OTP
 ```javascript
-sendOtp.retry('919999999999', true)
-    .on('success', (data) => {
-        console.log('OTP Send again');
-    })
-    .on('error', (err) => {
-        console.warn(err);
-    });
+sendOtp.retry("919999999999", false, function (error, data, response) {
+  console.log(data);
+});
 ```
 **Note:** Set retryVoice false if you want to retry otp via text, default value is true
 
 To verify OTP
 ```javascript
-sendOtp.verify('919999999999', '9621' )
+sendOtp.verify("919999999999", false, function (error, data, response) {
+  if(data.msgType == 'success') console.log('OTP verified successfully')
+  if(data.msgType == 'error') console.log('OTP verification failed')
+});
 ```
 
 ### Options:
