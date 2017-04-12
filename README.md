@@ -12,7 +12,7 @@ npm install sendotp --save
 ```
 const SendOtp = require('sendotp');
 ```
-3. Initialize with your auth key
+3. Initialize with your [MSG91](https://msg91.com) auth key
 ```
 const sendOtp = new SendOtp('AuthKey');
 ```

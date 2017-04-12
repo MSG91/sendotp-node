@@ -1,12 +1,9 @@
-"use strict";
-
-let request = require('request');
-
 class SendOtp {
 
     /**
      * Creates a new SendOtp instance
-     * @param authKey Authentication key
+     * @param {string} authKey Authentication key
+     * @param {string, optional} messageTemplate
      */
     constructor(authKey, messageTemplate) {
         this.authKey = authKey;
@@ -80,8 +77,7 @@ class SendOtp {
      * Verify Otp to given mobile number
      * @param {string} contactNumber receiver's mobile number along with country code
      * @param {string} otp otp to verify
-     * Return true if OTP verified successfully
-     * @returns {boolean} true id otp verified successfully else false
+     * Return promise if no callback is passed and promises available
      */
     verify(contactNumber, otp) {
         let args = {
