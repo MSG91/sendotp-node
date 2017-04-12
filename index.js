@@ -37,11 +37,16 @@ class SendOtp {
      * Send Otp to given mobile number
      * @param {string} contactNumber receiver's mobile number along with country code
      * @param {string} senderId
+     * @param {string, optional} otp
      * Return promise if no callback is passed and promises available
      */
-    send(contactNumber, senderId, callback) {
-        let otp = SendOtp.generateOtp(),
-            args = {
+    send(contactNumber, senderId, otp, callback) {
+        if (typeof otp === 'function') {
+            callback = otp;
+            otp = SendOtp.generateOtp()
+        }
+
+        let args = {
                 authkey: this.authKey,
                 mobile: contactNumber,
                 sender: senderId,

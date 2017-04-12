@@ -22,16 +22,23 @@ That's all, your SDK is set up!
 
 You now have the send, retry and verify otp via following methods.
 ```javascript
-sendOtp.send(contactNumber, senderId, callback);
+sendOtp.send(contactNumber, senderId, otp, callback); //otp is optional if not sent it'll be generated automatically
 sendOtp.retry(contactNumber, retryVoice, callback);
 sendOtp.verify(contactNumber, otp callback);
 ```
 
 ### Usage:
 
-To send OTP
+To send OTP, without optional parameters
 ```javascript
 sendOtp.send("919999999999", "PRIIND", function (error, data, response) {
+  console.log(data);
+});
+```
+
+To send OTP, with optional parameters
+```javascript
+sendOtp.send("919999999999", "PRIIND", "4635" function (error, data, response) {
   console.log(data);
 });
 ```
