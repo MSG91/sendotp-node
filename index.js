@@ -1,3 +1,7 @@
+"use strict";
+
+let request = require('request');
+
 class SendOtp {
 
     /**
