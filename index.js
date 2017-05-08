@@ -83,7 +83,7 @@ class SendOtp {
      * @param {string} otp otp to verify
      * Return promise if no callback is passed and promises available
      */
-    verify(contactNumber, otp) {
+    verify(contactNumber, otp, callback) {
         let args = {
                 authkey: this.authKey,
                 mobile: contactNumber,
