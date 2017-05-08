@@ -54,8 +54,9 @@ sendOtp.retry("919999999999", false, function (error, data, response) {
 To verify OTP
 ```javascript
 sendOtp.verify("919999999999", "4365", function (error, data, response) {
-  if(data.msgType == 'success') console.log('OTP verified successfully')
-  if(data.msgType == 'error') console.log('OTP verification failed')
+  console.log(data); // data object with keys 'message' and 'type'
+  if(data.type == 'success') console.log('OTP verified successfully')
+  if(data.type == 'error') console.log('OTP verification failed')
 });
 ```
 
