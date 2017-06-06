@@ -16,6 +16,7 @@ class SendOtp {
         }else{
             this.messageTemplate = "Your otp is {{otp}}. Please do not share it with anybody";
         }
+        this.otp_expiry = 1440; //1 Day =1440 minutes
     }
 
     /**
@@ -24,6 +25,14 @@ class SendOtp {
      */
     static getBaseURL() {
         return "https://control.msg91.com/api/";
+    }
+
+    /**
+     * Set the OTP expiry minutes for MSG91 api call
+     */
+    setOtpExpiry(otp_expiry) {
+        this.otp_expiry=otp_expiry;
+        return;
     }
 
     /**
@@ -46,13 +55,13 @@ class SendOtp {
             callback = otp;
             otp = SendOtp.generateOtp()
         }
-
         let args = {
                 authkey: this.authKey,
                 mobile: contactNumber,
                 sender: senderId,
                 message: this.messageTemplate.replace('{{otp}}', otp),
-                otp: otp
+                otp: otp,
+                otp_expiry: this.otp_expiry
             };
         return SendOtp.doRequest('get', "sendotp.php", args, callback);
     }

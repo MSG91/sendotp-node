@@ -43,6 +43,11 @@ sendOtp.send("919999999999", "PRIIND", "4635", function (error, data, response) 
 });
 ```
 
+If you want to set custom expiry of OTP verification  
+```javascript
+sendOtp.setOtpExpiry('90'); //in minutes
+```
+
 To retry OTP
 ```javascript
 sendOtp.retry("919999999999", false, function (error, data, response) {
