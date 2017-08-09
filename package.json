@@ -1,6 +1,6 @@
 {
   "name": "sendotp",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "Integrate sendotp",
   "main": "index.js",
   "scripts": {
