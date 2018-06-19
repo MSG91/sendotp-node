@@ -27,18 +27,25 @@ sendOtp.retry(contactNumber, retryVoice, callback);
 sendOtp.verify(contactNumber, otpToVerify, callback);
 ```
 
+### Note:
+In `callback` function you'll get two parameters but you have to always listen for second param instead of direct error object.
+Error object sample code
+```javascript
+{"type":"error","message":"ERROR_MESSAGE"}
+```
+
 ### Usage:
 
 To send OTP, without optional parameters
 ```javascript
-sendOtp.send("919999999999", "PRIIND", function (error, data, response) {
+sendOtp.send("919999999999", "PRIIND", function (error, data) {
   console.log(data);
 });
 ```
 
 To send OTP, with optional parameters
 ```javascript
-sendOtp.send("919999999999", "PRIIND", "4635", function (error, data, response) {
+sendOtp.send("919999999999", "PRIIND", "4635", function (error, data) {
   console.log(data);
 });
 ```
@@ -50,7 +57,7 @@ sendOtp.setOtpExpiry('90'); //in minutes
 
 To retry OTP
 ```javascript
-sendOtp.retry("919999999999", false, function (error, data, response) {
+sendOtp.retry("919999999999", false, function (error, data) {
   console.log(data);
 });
 ```
@@ -58,7 +65,7 @@ sendOtp.retry("919999999999", false, function (error, data, response) {
 
 To verify OTP
 ```javascript
-sendOtp.verify("919999999999", "4365", function (error, data, response) {
+sendOtp.verify("919999999999", "4365", function (error, data) {
   console.log(data); // data object with keys 'message' and 'type'
   if(data.type == 'success') console.log('OTP verified successfully')
   if(data.type == 'error') console.log('OTP verification failed')

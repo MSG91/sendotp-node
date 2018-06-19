@@ -6,3 +6,7 @@ npm-debug.log
 *.DS_Store
 *.sublime-project
 *.sublime-workspace
+
+# developement mode
+dev/*
+dev/
